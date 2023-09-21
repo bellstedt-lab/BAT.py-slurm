@@ -16,4 +16,4 @@ for file in run-*.bash; do
 done
 
 # Change back to original dir
-cd ../run_files_patches/
+cd ../slurm_patches/

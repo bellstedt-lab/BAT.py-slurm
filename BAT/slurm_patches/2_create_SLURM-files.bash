@@ -10,7 +10,7 @@ JOBNAME_FIX="#SLURM --jobname BAT\n"
 
 # Loop through all files starting with 'PBS-'
 for file in PBS-*; do
-  
+
   # Step 1: Copy each file, replacing "PBS-" with "SLURM-"
   new_file="${file/PBS-/SLURM-}"
   cp "$file" "$new_file"
@@ -45,4 +45,4 @@ for file in PBS-*; do
 done
 
 # Change back to original dir
-cd ../run_files_patches
+cd ../slurm_patches

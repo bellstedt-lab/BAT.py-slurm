@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 import glob as glob
 import os as os
 import re
@@ -855,11 +855,11 @@ if software == 'openmm' and stage == 'equil':
         shutil.copy(file, './')
       for file in glob.glob('../'+pose+'-amber/disang*'):
         shutil.copy(file, './')
-      fin = open('../../run_files/PBS-equil-op', "rt")
+      fin = open('../../run_files/SLURM-equil-op', "rt")
       data = fin.read()
       data = data.replace('RANGE', '%02d' %rng).replace('POSE', pose) 
       fin.close()
-      fin = open('PBS-equil', "wt")
+      fin = open('SLURM-equil', "wt")
       fin.write(data)
       fin.close()
       fin = open('../../run_files/local-equil-op.bash', "rt")
@@ -961,11 +961,11 @@ if software == 'openmm' and stage == 'fe':
           itera1 = dic_itera1[comp]
           itera2 = dic_itera2[comp]
           shutil.copy('../../../../run_files/local-rest-op.bash', './local-rest.bash')
-          fin = open('../../../../run_files/PBS-rest-op', "rt")
+          fin = open('../../../../run_files/SLURM-rest-op', "rt")
           data = fin.read()
           data = data.replace('CMPN', comp).replace('POSE', poses_def[i]) 
           fin.close()
-          fin = open('PBS-'+comp, "wt")
+          fin = open('SLURM-'+comp, "wt")
           fin.write(data)
           fin.close()
           fin = open('../../../../lib/rest.py', "rt")
@@ -1004,11 +1004,11 @@ if software == 'openmm' and stage == 'fe':
           itera1 = dic_itera1[comp]
           itera2 = dic_itera2[comp]
           shutil.copy('../../../../run_files/local-sdr-op.bash', './local-sdr.bash')
-          fin = open('../../../../run_files/PBS-sdr-op', "rt")
+          fin = open('../../../../run_files/SLURM-sdr-op', "rt")
           data = fin.read()
           data = data.replace('CMPN', comp).replace('POSE', poses_def[i]) 
           fin.close()
-          fin = open('PBS-'+comp, "wt")
+          fin = open('SLURM-'+comp, "wt")
           fin.write(data)
           fin.close()
           fin = open('../../../../lib/sdr.py', "rt")
@@ -1038,11 +1038,11 @@ if software == 'openmm' and stage == 'fe':
           if not os.path.exists('../run_files'):
             shutil.copytree('../../../../run_files', '../run_files')
           shutil.copy('../../../../run_files/local-dd-op.bash', './local-dd.bash')
-          fin = open('../../../../run_files/PBS-dd-op', "rt")
+          fin = open('../../../../run_files/SLURM-dd-op', "rt")
           data = fin.read()
           data = data.replace('CMPN', comp).replace('POSE', poses_def[i]) 
           fin.close()
-          fin = open('PBS-'+comp, "wt")
+          fin = open('SLURM-'+comp, "wt")
           fin.write(data)
           fin.close()
           fin = open('../../../../lib/dd.py', "rt")
