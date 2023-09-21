@@ -1,0 +1,7 @@
+#!/bin/bash
+
+#SLURM --jobname POSE-CMPN-comp
+
+
+rm -r trajectory
+python dd.py > output.dat
