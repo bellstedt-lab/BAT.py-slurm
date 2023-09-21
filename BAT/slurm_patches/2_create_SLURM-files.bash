@@ -18,7 +18,7 @@ for file in PBS-*; do
   # Step 2: Check if the new file contains "#PBS -N", and replace with "#SLURM --jobname"
   JOBNAME=$(grep "#PBS -N" "$new_file")
   if [ ! -z "$JOBNAME" ]; then
-    JOBNAME="${JOBNAME/PBS -N /SLURM --jobname=}"
+    JOBNAME="${JOBNAME/PBS -N /SBATCH --jobname=}"
   fi
 
   # Step 3a: Delete every line that comes before the "### Execute" line

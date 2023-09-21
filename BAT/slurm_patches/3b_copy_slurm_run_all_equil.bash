@@ -8,7 +8,7 @@ SCRIPT="\
 x=0
 while [ \$x -lt NUMBER_OF_POSES ]; do
 cd pose\$x
-sbatch SLURM-run
+sbatch SLURM-equil
 cd ../
 let x=x+1
 done

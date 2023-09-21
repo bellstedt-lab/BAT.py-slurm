@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SLURM --jobname=equil-POSE
+#SBATCH --jobname=equil-POSE
 
 
 python equil-00.py > output-00.dat
