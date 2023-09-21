@@ -1,6 +1,0 @@
-#!/bin/bash
-
-#SLURM --jobname Create_system
-
-/home/gheinzel/amber20/miniconda/bin/python BAT.py -i input.in -s analysis
-
