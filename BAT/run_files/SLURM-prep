@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --jobname=STAGE-POSE
+#SBATCH -J STAGE-POSE
 
 ### Execute
 $AMBERHOME/bin/pmemd.cuda -O -i mini.in -p full.hmr.prmtop -c full.inpcrd -o mini.out -r mini.rst7 -x mini.nc -ref full.inpcrd

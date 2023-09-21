@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --jobname=POSE-CMPN-comp
+#SBATCH -J POSE-CMPN-comp
 
 
 rm -r trajectory

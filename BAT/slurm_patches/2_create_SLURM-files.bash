@@ -6,7 +6,7 @@ cd ../run_files/
 # Define the header text
 HEADER1="#!/bin/bash\n\n"
 
-JOBNAME_FIX="#SBATCH --jobname=BAT\n"
+JOBNAME_FIX="#SBATCH -J BAT\n"
 
 # Loop through all files starting with 'PBS-'
 for file in PBS-*; do
@@ -18,7 +18,7 @@ for file in PBS-*; do
   # Step 2: Check if the new file contains "#PBS -N", and replace with "#SLURM --jobname"
   JOBNAME=$(grep "#PBS -N" "$new_file")
   if [ ! -z "$JOBNAME" ]; then
-    JOBNAME="${JOBNAME/PBS -N /SBATCH --jobname=}"
+    JOBNAME="${JOBNAME/PBS -N/SBATCH -J}"
   fi
 
   # Step 3a: Delete every line that comes before the "### Execute" line
