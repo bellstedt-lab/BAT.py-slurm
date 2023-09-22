@@ -6,6 +6,7 @@
 clear
 source /opt/conda/etc/profile.d/conda.sh
 conda activate py38
+cd BAT
 
 echo "------  Automatisiation Script for Binding Affinity Tool (BAT) --------"
 echo ""
