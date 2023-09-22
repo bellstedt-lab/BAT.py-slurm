@@ -16,15 +16,15 @@ exc=0
 if [[ exc -eq 0 && ! -d "./equil" ]]; then
 	# Create Files for equilibration & start
 	echo "1) Creating Files for Equilibration (might take a while) ..."
-	python BAT_slurm.py -i input-dd-openmm.in -s equil 1> ./logs/1a_equil.out 2>./logs/1a_equil.err
+	srun python BAT_slurm.py -i input-dd-openmm.in -s equil 1> ./logs/1a_equil.out 2>./logs/1a_equil.err
 	sleep 2s
 	cd equil
 	echo "2) Starting MD for equilibration..."
-	bash slurm_run-all-equil.bash 1> ../logs/1b_equil_start_md.out 2> ../logs/1b_equil_start_md.err
+	srun bash slurm_run-all-equil.bash 1> ../logs/1b_equil_start_md.out 2> ../logs/1b_equil_start_md.err
 	cd ..
-	sleep 2s
+	srun sleep 2s
 	echo ""
-	squeue 1> ./logs/1c_equil_qstat_after_start_md.out 2> ./logs/1c_equil_qstat_after_start_md.err
+	srun squeue 1> ./logs/1c_equil_qstat_after_start_md.out 2> ./logs/1c_equil_qstat_after_start_md.err
 	echo ""
 	exc=1
 else
