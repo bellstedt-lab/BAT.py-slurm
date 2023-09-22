@@ -20,7 +20,7 @@ if [[ exc -eq 0 && ! -d "./equil" ]]; then
 	sleep 2s
 	cd equil
 	echo "2) Starting MD for equilibration..."
-	bash sge_run-all-equil.bash 1> ../logs/1b_equil_start_md.out 2> ../logs/1b_equil_start_md.err
+	bash slurm_run-all-equil.bash 1> ../logs/1b_equil_start_md.out 2> ../logs/1b_equil_start_md.err
 	cd ..
 	sleep 2s
 	echo ""
@@ -38,7 +38,7 @@ if [[ exc -eq 0 && ! -d "./fe" ]]; then
 	sleep 2
         cd fe
 	echo "4) Starting Productive MD runs..." 
-	bash sge_run-all-poses-dd.bash 1> ../logs/2b_fe_start_md.out 2> ../logs/2b_fe_start_md.err
+	bash slurm_run-all-poses-dd.bash 1> ../logs/2b_fe_start_md.out 2> ../logs/2b_fe_start_md.err
 	cd ..
 	sleep 2
 	squeue 1> ./logs/1c_fe_qstat_after_start_md.out 2> ./logs/2c_fe_qstat_after_start_md.err
