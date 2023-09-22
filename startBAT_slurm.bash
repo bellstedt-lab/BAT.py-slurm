@@ -16,7 +16,7 @@ exc=0
 if [[ exc -eq 0 && ! -d "./equil" ]]; then
 	# Create Files for equilibration & start
 	echo "1) Creating Files for Equilibration (might take a while) ..."
-	python BAT.py -i input-dd-openmm.in -s equil 1> ./logs/1a_equil.out 2>./logs/1a_equil.err
+	python BAT_slurm.py -i input-dd-openmm.in -s equil 1> ./logs/1a_equil.out 2>./logs/1a_equil.err
 	sleep 2s
 	cd equil
 	echo "2) Starting MD for equilibration..."
@@ -34,7 +34,7 @@ fi
 if [[ exc -eq 0 && ! -d "./fe" ]]; then
 	# Energy calculation
 	echo "3) Create Files for Productive MD runs..."
-	python BAT.py -i input-dd-openmm.in -s fe 1> ./logs/2a_fe_prep.out 2>./logs/2a_fe_prep.err
+	python BAT_slurm.py -i input-dd-openmm.in -s fe 1> ./logs/2a_fe_prep.out 2>./logs/2a_fe_prep.err
 	sleep 2
         cd fe
 	echo "4) Starting Productive MD runs..." 
@@ -50,7 +50,7 @@ fi
 
 if [[ exc -eq 0 && -d "./fe/pose0/" && ! -d "./fe/pose0/Results/" ]]; then
 	echo "5) Analysing MD runs and calculate binding energy..." 
-	python BAT.py -i input-dd-openmm.in -s analysis 1> ./logs/5a_fe_analysis.out 2>./logs/5a_fe_analysis.err
+	python BAT_slurm.py -i input-dd-openmm.in -s analysis 1> ./logs/5a_fe_analysis.out 2>./logs/5a_fe_analysis.err
 	exc=1
 else
 	echo "-) Skipping Analysis"
