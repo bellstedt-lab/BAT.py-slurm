@@ -20,7 +20,7 @@ lambdas = []
 weights = []  
 components = []  
 aa1_poses = []  
-aa2_poses = []  
+aa2_poses = []
 other_mol = []
 
 # Defaults
@@ -610,7 +610,7 @@ if stage == 'equil':
     print('\n')
     print ('WARNING: Could not find the ligand L2 or L3 anchors for', aa2_poses)
     print ('Try reducing the min_adis parameter in the input file.')
-  pbell
+  #pbell
   with open('./run_files/slurm_run-all-equil.bash') as f:
     s = f.read()
     s = s.replace('NUMBER_OF_POSES', str(len(poses_def)))
