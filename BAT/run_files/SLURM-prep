@@ -22,7 +22,7 @@ sleep 10
 $AMBERHOME/bin/pmemd.cuda -O -i mdin-000 -p full.hmr.prmtop -c eqnpt04.rst7 -o md-000.out -r md000.rst7 -x md000.nc -ref full.inpcrd
 sleep 10
 i=1
-while [[ $i -le ${RANGE#0} ]]
+while [[ $i -le $((10#RANGE)) ]]
 j=$((i-1))
 x=$(printf "%03.0f" $i)
 y=$(printf "%03.0f" $j)
