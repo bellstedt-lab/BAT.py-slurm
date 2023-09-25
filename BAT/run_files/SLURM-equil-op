@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH -J equil-POSE
+#SBATCH -J equil-RANGE
 
 
 python equil-00.py > output-00.dat
