@@ -23,6 +23,7 @@ $AMBERHOME/bin/pmemd.cuda -O -i mdin-00 -p full.hmr.prmtop -c eqnpt04.rst7 -o md
 sleep 10
 i=1
 while [[ $i -le $((10#RANGE)) ]]
+do
 j=$((i-1))
 x=$(printf "%02.0f" $i)
 y=$(printf "%02.0f" $j)

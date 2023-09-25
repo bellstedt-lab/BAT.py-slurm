@@ -6,6 +6,7 @@
 python equil-00.py > output-00.dat
 i=1
 while [[ $i -le $((10#RANGE)) ]]
+do
 x=$(printf "%02.0f" $i)
 python equil-$x.py > output-$x.dat
 sleep 5
