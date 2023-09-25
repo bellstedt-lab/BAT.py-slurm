@@ -611,11 +611,11 @@ if stage == 'equil':
     print ('WARNING: Could not find the ligand L2 or L3 anchors for', aa2_poses)
     print ('Try reducing the min_adis parameter in the input file.')
   #pbell
-  with open('./run_files/slurm_run-all-equil.bash') as f:
-    s = f.read()
-    s = s.replace('NUMBER_OF_POSES', str(len(poses_def)))
-    with open('./equil/slurm_run-all-equil.bash', "w") as f:
-      f.write(s)
+  #with open('./run_files/slurm_run-all-equil.bash') as f:
+  #  s = f.read()
+  #  s = s.replace('NUMBER_OF_POSES', str(len(poses_def)))
+  #  with open('./equil/slurm_run-all-equil.bash', "w") as f:
+  #    f.write(s)
 elif stage == 'fe':
   # Create systems for all poses after preparation
   num_sim = apr_sim

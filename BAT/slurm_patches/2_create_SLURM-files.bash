@@ -42,6 +42,44 @@ for file in PBS-*; do
 
   # Unset JOBNAME for the next iteration
   unset JOBNAME
+  
+  # Step 5: Cosmetics (Remove lines)
+  sed -i '/### Copy back to Original Work Dir./d' "$new_file"
+  
+  # Handle specialities
+  if grep -q "@" "$new_file"; then
+    echo "$new_file have to be translated to bash syntax now due to @ syntax. Applying patches."
+
+    # Patch 1: PBS-equil-op
+    sed -i \
+    -e 's/@ i = 1/i=1/' \
+    -e 's/while ($i <= RANGE)/while [[ $i -le $RANGE ]]/' \
+    -e 's/set x = `printf "%02.0f" $i`/x=$(printf "%02.0f" $i)/' \
+    -e 's/@ i += 1/i=$((i+1))/' \
+    -e 's/end/done/' "$new_file"
+    
+    # Patch 2: PBS-equil
+    sed -i \
+    -e 's/@ i = 1/i=1/' \
+    -e 's/while ($i <= RANGE)/while [[ $i -le $RANGE ]]/' \
+    -e 's/@ j = ($i - 1)/j=$((i-1))/' \
+    -e 's/set x = `printf "%02.0f" $i`/x=$(printf "%02.0f" $i)/' \
+    -e 's/set y = `printf "%02.0f" $j`/y=$(printf "%02.0f" $j)/' \
+    -e 's/@ i += 1/i=$((i+1))/' \
+    -e 's/end/done/' "$new_file"
+    
+    #Patch 3: PBS-prep
+    sed -i \
+    -e 's/@ i = 1/i=1/' \
+    -e 's/while ($i <= RANGE)/while [[ $i -le $RANGE ]]/' \
+    -e 's/@ j = ($i - 1)/j=$((i-1))/' \
+    -e 's/set x = `printf "%03.0f" $i`/x=$(printf "%03.0f" $i)/' \
+    -e 's/set y = `printf "%03.0f" $j`/y=$(printf "%03.0f" $j)/' \
+    -e 's/@ i += 1/i=$((i+1))/' \
+    -e 's/end/done/' "$new_file"
+ 
+  fi
+  
 done
 
 # Change back to original dir

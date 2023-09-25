@@ -21,15 +21,14 @@ $AMBERHOME/bin/pmemd.cuda -O -i eqnpt.in -p full.hmr.prmtop -c eqnpt03.rst7 -o e
 sleep 10
 $AMBERHOME/bin/pmemd.cuda -O -i mdin-00 -p full.hmr.prmtop -c eqnpt04.rst7 -o md-00.out -r md00.rst7 -x md00.nc -ref full.inpcrd
 sleep 10
-@ i = 1
-while ($i <= RANGE)
-@ j = ($i - 1)
-set x = `printf "%02.0f" $i`
-set y = `printf "%02.0f" $j`
+i=1
+while [[ $i -le $RANGE ]]
+j=$((i-1))
+x=$(printf "%02.0f" $i)
+y=$(printf "%02.0f" $j)
 $AMBERHOME/bin/pmemd.cuda -O -i mdin-$x -p full.hmr.prmtop -c md$y.rst7 -o md-$x.out -r md$x.rst7 -x md$x.nc -ref full.inpcrd
 sleep 10
-@ i += 1
-end
+i=$((i+1))
+done
 
-### Copy back to Original Work Dir.
 
