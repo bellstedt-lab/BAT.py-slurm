@@ -14,9 +14,10 @@ if [[ -d "./equil" ]]; then
 	# start MD simulations
 	cd equil
 	echo "2) Starting MD for equilibration..."
-	sbatch slurm_run-all-equil.bash 1> ../logs/1b_equil_start_md.out 2> ../logs/1b_equil_start_md.err
-	cd ..
-	echo "...Finished"
+	sbatch --wait slurm_run-all-equil.bash 1> ../logs/1b_equil_start_md.out 2> ../logs/1b_equil_start_md.err
+	echo "...Finished. Directory structure:"
+	echo ""
+	tree
 else
 	echo "-) Skipping Equilibration step: no equil directory"
 fi

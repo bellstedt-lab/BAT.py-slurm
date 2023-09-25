@@ -14,8 +14,12 @@ if [[ ! -d "./equil" ]]; then
 	# Create Files for equilibration & start
 	echo "1) Creating Files for Equilibration (might take a while) ..."
 	python BAT_slurm.py -i input-dd-openmm.in -s equil 1> ./logs/1a_equil.out 2>./logs/1a_equil.err
-	echo "...Finished"
+	echo "...Finished. Directory equil looks like that:"
+	echo ""
+	tree ./equil
 else
-	echo "-) Skipping Equilibration step: equil folder already exists"
+	echo "-) Skipping Equilibration step: equil folder already exists:"
+	echo ""
+	tree ./equil
 fi
 

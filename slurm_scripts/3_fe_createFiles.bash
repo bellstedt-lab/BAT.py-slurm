@@ -15,7 +15,9 @@ if [[ ! -d "./fe" ]]; then
 	echo "3) Create Files for Productive MD runs..."
 	python BAT_slurm.py -i input-dd-openmm.in -s fe 1> ./logs/2a_fe_prep.out 2>./logs/2a_fe_prep.err
 	sleep 1
-	echo "...Finished"
+	echo "...Finished. Directory structure:"
+	echo ""
+	tree fe
 else
 	echo "-) Skipping Productive MD run: fe directory already exists"
 fi
