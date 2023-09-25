@@ -53,7 +53,7 @@ for file in PBS-*; do
     # Patch 1: PBS-equil-op
     sed -i \
     -e 's/@ i = 1/i=1/' \
-    -e 's/while ($i <= RANGE)/while [[ $i -le RANGE ]]/' \
+    -e 's/while ($i <= RANGE)/while [[ $i -le ${RANGE#0} ]]/' \
     -e 's/set x = `printf "%02.0f" $i`/x=$(printf "%02.0f" $i)/' \
     -e 's/@ i += 1/i=$((i+1))/' \
     -e 's/end/done/' "$new_file"
@@ -61,7 +61,7 @@ for file in PBS-*; do
     # Patch 2: PBS-equil
     sed -i \
     -e 's/@ i = 1/i=1/' \
-    -e 's/while ($i <= RANGE)/while [[ $i -le RANGE ]]/' \
+    -e 's/while ($i <= RANGE)/while [[ $i -le ${RANGE#0} ]]/' \
     -e 's/@ j = ($i - 1)/j=$((i-1))/' \
     -e 's/set x = `printf "%02.0f" $i`/x=$(printf "%02.0f" $i)/' \
     -e 's/set y = `printf "%02.0f" $j`/y=$(printf "%02.0f" $j)/' \
@@ -71,7 +71,7 @@ for file in PBS-*; do
     #Patch 3: PBS-prep
     sed -i \
     -e 's/@ i = 1/i=1/' \
-    -e 's/while ($i <= RANGE)/while [[ $i -le RANGE ]]/' \
+    -e 's/while ($i <= RANGE)/while [[ $i -le ${RANGE#0} ]]/' \
     -e 's/@ j = ($i - 1)/j=$((i-1))/' \
     -e 's/set x = `printf "%03.0f" $i`/x=$(printf "%03.0f" $i)/' \
     -e 's/set y = `printf "%03.0f" $j`/y=$(printf "%03.0f" $j)/' \
