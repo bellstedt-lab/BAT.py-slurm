@@ -17,7 +17,7 @@ while true; do
     echo ""
     current_time=$(date +%s)
     elapsed_time=$(( (current_time - start_time) / 60 ))
-    echo "Time since start of script: $elapsed_time minutes"
+    echo "Time since start of script: $elapsed_time minutes (Page will reload after 5 sec.)"
     echo ""
 
     output=$(squeue)
@@ -28,5 +28,5 @@ while true; do
         break
     fi
 
-    sleep 60
+    sleep 5
 done
