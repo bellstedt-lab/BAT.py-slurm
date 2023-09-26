@@ -7,3 +7,26 @@ JOB_ID=$(sbatch 1_* | awk '{print $NF}')
 for script in 2_*.bash 3_*.bash 4_*.bash 5_*.bash; do
     JOB_ID=$(sbatch --dependency=afterok:$JOB_ID $script | awk '{print $NF}')
 done
+
+start_time=$(date +%s)
+
+while true; do
+    clear
+    echo "Automatisation of BAT via SLUM Workload Manager"
+    echo "-----------------------------------------------"
+    echo ""
+    current_time=$(date +%s)
+    elapsed_time=$(( (current_time - start_time) / 60 ))
+    echo "Time since start of script: $elapsed_time minutes"
+    echo ""
+
+    output=$(squeue)
+    echo "$output"
+    line_count=$(echo "$output" | wc -l)
+
+    if [[ $line_count -le 1 ]]; then
+        break
+    fi
+
+    sleep 60
+done
