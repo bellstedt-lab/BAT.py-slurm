@@ -13,4 +13,4 @@ let x=x+1
 done
 "
 
-echo -e "$SCRIPT" > ../run_files/slurm_run-all-poses-dd.bash
+echo -e "$SCRIPT" > ../run_files/slurm_run-all-dd-all-poses.bash

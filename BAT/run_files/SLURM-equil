@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH -J STAGE-RANGE
+#SBATCH -J STAGE-NUMBER_OF_POSES
 
 ### Execute
 $AMBERHOME/bin/pmemd.cuda -O -i mini.in -p full.hmr.prmtop -c full.inpcrd -o mini.out -r mini.rst7 -x mini.nc -ref full.inpcrd

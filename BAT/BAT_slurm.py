@@ -857,7 +857,8 @@ if software == 'openmm' and stage == 'equil':
         shutil.copy(file, './')
       fin = open('../../run_files/SLURM-equil-op', "rt")
       data = fin.read()
-      data = data.replace('RANGE', '%02d' %rng).replace('POSE', pose) 
+      data = data.replace('RANGE', '%02d' %rng).replace('POSE', pose)
+      data = data.replace('NUMBER_OF_POSES', len(poses_def)) #pbell
       fin.close()
       fin = open('SLURM-equil', "wt")
       fin.write(data)
@@ -963,7 +964,8 @@ if software == 'openmm' and stage == 'fe':
           shutil.copy('../../../../run_files/local-rest-op.bash', './local-rest.bash')
           fin = open('../../../../run_files/SLURM-rest-op', "rt")
           data = fin.read()
-          data = data.replace('CMPN', comp).replace('POSE', poses_def[i]) 
+          data = data.replace('CMPN', comp).replace('POSE', poses_def[i])
+          data = data.replace('NUMBER_OF_POSES', len(poses_def)) #pbell
           fin.close()
           fin = open('SLURM-'+comp, "wt")
           fin.write(data)
@@ -1006,7 +1008,8 @@ if software == 'openmm' and stage == 'fe':
           shutil.copy('../../../../run_files/local-sdr-op.bash', './local-sdr.bash')
           fin = open('../../../../run_files/SLURM-sdr-op', "rt")
           data = fin.read()
-          data = data.replace('CMPN', comp).replace('POSE', poses_def[i]) 
+          data = data.replace('CMPN', comp).replace('POSE', poses_def[i])
+          data = data.replace('NUMBER_OF_POSES', len(poses_def)) #pbell
           fin.close()
           fin = open('SLURM-'+comp, "wt")
           fin.write(data)
@@ -1040,7 +1043,8 @@ if software == 'openmm' and stage == 'fe':
           shutil.copy('../../../../run_files/local-dd-op.bash', './local-dd.bash')
           fin = open('../../../../run_files/SLURM-dd-op', "rt")
           data = fin.read()
-          data = data.replace('CMPN', comp).replace('POSE', poses_def[i]) 
+          data = data.replace('CMPN', comp).replace('POSE', poses_def[i])
+          data = data.replace('NUMBER_OF_POSES', len(poses_def)) #pbell
           fin.close()
           fin = open('SLURM-'+comp, "wt")
           fin.write(data)

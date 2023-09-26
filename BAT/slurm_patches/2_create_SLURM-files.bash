@@ -19,7 +19,7 @@ for file in PBS-*; do
   JOBNAME=$(grep "#PBS -N" "$new_file")
   if [ ! -z "$JOBNAME" ]; then
     JOBNAME="${JOBNAME/PBS -N/SBATCH -J}"
-    JOBNAME="${JOBNAME/POSE/RANGE}"
+    JOBNAME="${JOBNAME/POSE/NUMBER_OF_POSES}"
   fi
 
   # Step 3a: Delete every line that comes before the "### Execute" line

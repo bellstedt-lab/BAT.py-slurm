@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH -J equil-RANGE
+#SBATCH -J equil-NUMBER_OF_POSES
 
 
 python equil-00.py > output-00.dat

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH -J RANGE-CMPN-comp
+#SBATCH -J NUMBER_OF_POSES-CMPN-comp
 
 
 rm -r trajectory

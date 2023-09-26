@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH -J STAGE-RANGE
+#SBATCH -J STAGE-NUMBER_OF_POSES
 
 ### Execute
 $AMBERHOME/bin/pmemd.cuda -O -i heat.in -p full.hmr.prmtop -c full.inpcrd -o md-heat.out -r md-heat.rst7 -x md-heat.nc -ref full.inpcrd
