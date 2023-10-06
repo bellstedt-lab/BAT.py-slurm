@@ -970,6 +970,9 @@ if software == 'openmm' and stage == 'fe':
           fin = open('SLURM-'+comp, "wt")
           fin.write(data)
           fin.close()
+          #pbell: Create a symbolic link
+          os.symlink('SLURM-'+comp, 'SLURM-run')
+          #
           fin = open('../../../../lib/rest.py', "rt")
           data = fin.read()
           data = data.replace('LAMBDAS', '[%s]' % ' , '.join(map(str, lambdas_rest))).replace('LIG', mol.upper()).replace('TMPRT', str(temperature)).replace('TSTP', str(dt)).replace('SPITR', str(itera_steps)).replace('PRIT', str(itera2)).replace('EQIT', str(itera1)).replace('ITCH', str(itcheck)).replace('GAMMA_LN', str(gamma_ln)).replace('CMPN', str(comp)).replace('CTF', cut) 
@@ -1014,6 +1017,9 @@ if software == 'openmm' and stage == 'fe':
           fin = open('SLURM-'+comp, "wt")
           fin.write(data)
           fin.close()
+          #pbell: Create a symbolic link
+          os.symlink('SLURM-'+comp, 'SLURM-run')
+          #
           fin = open('../../../../lib/sdr.py', "rt")
           data = fin.read()
           data = data.replace('LAMBDAS', '[%s]' % ' , '.join(map(str, lambdas))).replace('LIG', mol.upper()).replace('TMPRT', str(temperature)).replace('TSTP', str(dt)).replace('SPITR', str(itera_steps)).replace('PRIT', str(itera2)).replace('EQIT', str(itera1)).replace('ITCH', str(itcheck)).replace('GAMMA_LN', str(gamma_ln)).replace('CMPN', str(comp)).replace('CTF', cut) 
@@ -1049,6 +1055,9 @@ if software == 'openmm' and stage == 'fe':
           fin = open('SLURM-'+comp, "wt")
           fin.write(data)
           fin.close()
+          #pbell: Create a symbolic link
+          os.symlink('SLURM-'+comp, 'SLURM-run')
+          #
           fin = open('../../../../lib/dd.py', "rt")
           data = fin.read()
           data = data.replace('LAMBDAS', '[%s]' % ' , '.join(map(str, lambdas))).replace('LIG', mol.upper()).replace('TMPRT', str(temperature)).replace('TSTP', str(dt)).replace('SPITR', str(itera_steps)).replace('PRIT', str(itera2)).replace('EQIT', str(itera1)).replace('ITCH', str(itcheck)).replace('GAMMA_LN', str(gamma_ln)).replace('CMPN', str(comp)).replace('CTF', cut) 

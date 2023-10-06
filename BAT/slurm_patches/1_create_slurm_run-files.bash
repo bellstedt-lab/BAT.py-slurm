@@ -11,7 +11,6 @@ for file in run-*.bash; do
 
   # Replace PBS with SLURM syntax and adjust filenames 
   sed -i 's/qsub PBS/sbatch SLURM/g' "$new_file"
-  sed -i 's/SLURM-run/SLURM-*/g' "$new_file"  #Fe folder contains component specific SLURM-XYZ script 
   sed -i 's|./run_files/run-|./run_files/slurm_run-|g' "$new_file"
   sed -i 's/source run-/source slurm_run-/g' "$new_file"
 done
