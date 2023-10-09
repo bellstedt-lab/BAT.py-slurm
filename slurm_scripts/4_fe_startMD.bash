@@ -7,16 +7,12 @@ source /opt/conda/etc/profile.d/conda.sh
 conda activate py38
 cd ../BAT
 
-#echo "------  SLURM Automatisiation Script for Binding Affinity Tool (BAT) --------"
-#echo ""
-
 if [[ -d "./fe/pose0/" && ! -d "./fe/pose0/Results/" ]]; then
-	echo "5) Analysing MD runs and calculate binding energy..." 
-	python BAT_slurm.py -i input-dd-openmm.in -s analysis 1> ./logs/5a_fe_analysis.out 2>./logs/5a_fe_analysis.err
-	echo ""
-    echo "...Finished. Directory structure:"
-    echo ""
-    tree fe
+	echo "4) Starting Productive MD runs..." 
+	cd fe
+	#bash sge_run-all-dd-all-poses.bash 1> ../logs/2b_fe_start_md.out 2> ../logs/2b_fe_start_md.err
+	bash sge_run-all-dd-all-poses.bash
+	echo "Finished."
 else
 	echo "-) Skipping Analysis"
 fi
