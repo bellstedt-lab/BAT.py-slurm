@@ -14,4 +14,4 @@ let x=x+1
 done
 "
 
-echo -e "$SCRIPT" > ../run_files/slurm_run-all-equil.bash
+echo -e "$SCRIPT" > ../BAT/run_files/slurm_run-all-equil.bash

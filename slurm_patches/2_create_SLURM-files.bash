@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Change to correct directory
-cd ../run_files/
+cd ../BAT/run_files/
 
 # Define the header text
 HEADER1="#!/bin/bash\n\n"
@@ -84,4 +84,4 @@ for file in PBS-*; do
 done
 
 # Change back to original dir
-cd ../slurm_patches
+cd ../../slurm_patches/

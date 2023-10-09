@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#change to correct directory
+cd slurm_scripts
+
 # Submit the first job
 JOB_ID=$(sbatch 1_* | awk '{print $NF}')
 
@@ -30,3 +33,7 @@ while true; do
 
     sleep 5
 done
+
+# Copy and Show results
+echo "Calculation finished after $elapsed_time minutes."
+source 6_copy_results.bash

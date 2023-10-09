@@ -1,17 +1,17 @@
 cd rest
 cd m-comp
-sbatch SLURM-m
+sbatch --wait SLURM-m
 cd ../
 cd n-comp
-sbatch SLURM-n
+sbatch --wait SLURM-n
 cd ../
 cd ../
 
 cd sdr
 cd e-comp
-sbatch SLURM-e
+sbatch --wait SLURM-e
 cd ../
 cd v-comp
-sbatch SLURM-v
+sbatch --wait SLURM-v
 cd ../
 cd ../

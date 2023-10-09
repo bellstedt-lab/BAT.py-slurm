@@ -1,32 +1,32 @@
 cd rest
 cd a-comp
-sbatch SLURM-a
+sbatch --wait SLURM-a
 cd ../
 cd l-comp
-sbatch SLURM-l
+sbatch --wait SLURM-l
 cd ../
 cd t-comp
-sbatch SLURM-t
+sbatch --wait SLURM-t
 cd ../
 cd c-comp
-sbatch SLURM-c
+sbatch --wait SLURM-c
 cd ../
 cd r-comp
-sbatch SLURM-r
+sbatch --wait SLURM-r
 cd ../
 cd ../
 
 cd dd
 cd e-comp
-sbatch SLURM-e
+sbatch --wait SLURM-e
 cd ../
 cd v-comp
-sbatch SLURM-v
+sbatch --wait SLURM-v
 cd ../
 cd w-comp
-sbatch SLURM-w
+sbatch --wait SLURM-w
 cd ../
 cd f-comp
-sbatch SLURM-f
+sbatch --wait SLURM-f
 cd ../
 cd ../
