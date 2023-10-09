@@ -788,11 +788,15 @@ elif stage == 'fe':
         os.chdir('../')
     #pbell2 : Copy and adjust run scripts
     # current dir is inside poseX
-    with open('../../run_files/slurm_run-all-dd.bash') as f:
-      s = f.read()
-      #s = s.replace('NUMBER_OF_POSES', str(len(poses_def)))
+    if software == 'openmm':
+        with open('../../run_files/slurm_run-op-dd.bash') as f:
+             s = f.read()
+    else:
+        with open('../../run_files/slurm_run-all-dd.bash') as f: # For Amber?
+            s = f.read()
+            
     with open('./slurm_run-all-dd.bash', "w") as f:
-      f.write(s)
+        f.write(s)
     os.chdir('../')
     # current dir is /fe
     with open('./../run_files/slurm_run-all-dd-all-poses.bash') as f:
@@ -800,8 +804,7 @@ elif stage == 'fe':
       s = s.replace('NUMBER_OF_POSES', str(len(poses_def)))
     with open('./slurm_run-all-dd-all-poses.bash', "w") as f:
       f.write(s)
-
-    #os.chdir('../')
+    os.chdir('../')
   if len(aa1_poses) != 0:
     print('\n')
     print ('WARNING: Could not find the ligand first anchor L1 for', aa1_poses)
@@ -970,9 +973,6 @@ if software == 'openmm' and stage == 'fe':
           fin = open('SLURM-'+comp, "wt")
           fin.write(data)
           fin.close()
-          #pbell: Create a symbolic link
-          os.symlink('SLURM-'+comp, 'SLURM-run')
-          #
           fin = open('../../../../lib/rest.py', "rt")
           data = fin.read()
           data = data.replace('LAMBDAS', '[%s]' % ' , '.join(map(str, lambdas_rest))).replace('LIG', mol.upper()).replace('TMPRT', str(temperature)).replace('TSTP', str(dt)).replace('SPITR', str(itera_steps)).replace('PRIT', str(itera2)).replace('EQIT', str(itera1)).replace('ITCH', str(itcheck)).replace('GAMMA_LN', str(gamma_ln)).replace('CMPN', str(comp)).replace('CTF', cut) 
@@ -1017,9 +1017,6 @@ if software == 'openmm' and stage == 'fe':
           fin = open('SLURM-'+comp, "wt")
           fin.write(data)
           fin.close()
-          #pbell: Create a symbolic link
-          os.symlink('SLURM-'+comp, 'SLURM-run')
-          #
           fin = open('../../../../lib/sdr.py', "rt")
           data = fin.read()
           data = data.replace('LAMBDAS', '[%s]' % ' , '.join(map(str, lambdas))).replace('LIG', mol.upper()).replace('TMPRT', str(temperature)).replace('TSTP', str(dt)).replace('SPITR', str(itera_steps)).replace('PRIT', str(itera2)).replace('EQIT', str(itera1)).replace('ITCH', str(itcheck)).replace('GAMMA_LN', str(gamma_ln)).replace('CMPN', str(comp)).replace('CTF', cut) 
@@ -1055,9 +1052,6 @@ if software == 'openmm' and stage == 'fe':
           fin = open('SLURM-'+comp, "wt")
           fin.write(data)
           fin.close()
-          #pbell: Create a symbolic link
-          os.symlink('SLURM-'+comp, 'SLURM-run')
-          #
           fin = open('../../../../lib/dd.py', "rt")
           data = fin.read()
           data = data.replace('LAMBDAS', '[%s]' % ' , '.join(map(str, lambdas))).replace('LIG', mol.upper()).replace('TMPRT', str(temperature)).replace('TSTP', str(dt)).replace('SPITR', str(itera_steps)).replace('PRIT', str(itera2)).replace('EQIT', str(itera1)).replace('ITCH', str(itcheck)).replace('GAMMA_LN', str(gamma_ln)).replace('CMPN', str(comp)).replace('CTF', cut) 
