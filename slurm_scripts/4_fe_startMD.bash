@@ -16,5 +16,5 @@ if [[ -d "./fe/pose0/" && ! -d "./fe/pose0/Results/" ]]; then
 	bash sge_run-all-dd-all-poses.bash
 	echo "Finished."
 else
-	echo "-) Skipping Analysis"
+	echo "-) Skipping Produtive MD run execution: either /fe/pose0/Results/ exist or /fe/pose0/ does not exist"
 fi
