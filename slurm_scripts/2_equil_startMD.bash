@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #SBATCH -J BAT2
-#SBATCH -o 2_equil_StartMD_JobId%j.out
+#SBATCH -o slurm_2_equil_StartMD_JobId%j.out
 
 
 clear

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #SBATCH -J BAT3
-#SBATCH -o 3_fe_createFiles_JobId%j.out
+#SBATCH -o slurm_3_fe_createFiles_JobId%j.out
 
 
 clear
@@ -17,7 +17,7 @@ if [[ ! -d "./fe" ]]; then
 	sleep 1
 	echo "...Finished."
 else
-	echo "-) Skipping Productive MD run: fe directory already exists"
+	echo "-) Skipping creation of productive MD run directory: fe directory already exists"
 fi
 
 

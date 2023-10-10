@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #SBATCH -J BAT4
-#SBATCH -o 4_fe_startMD_JobId%j.out
+#SBATCH -o slurm_4_fe_startMD_JobId%j.out
 
 
 clear

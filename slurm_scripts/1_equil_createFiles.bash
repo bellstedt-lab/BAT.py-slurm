@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #SBATCH -J BAT1
-#SBATCH -o 1_equil_createFiles_JobId%j.out
+#SBATCH -o slurm_1_equil_createFiles_JobId%j.out
 
 clear
 source /opt/conda/etc/profile.d/conda.sh
@@ -15,7 +15,7 @@ if [[ ! -d "./equil" ]]; then
 	python BAT_slurm.py -i input-dd-openmm.in -s equil
 	echo "...Finished."
 else
-	echo "-) Skipping Equilibration step: equil folder already exists:"
+	echo "-) Skipping creation of equilibration folder: equil folder already exists:"
 	echo ""
 	#tree ./equil
 fi

@@ -792,18 +792,18 @@ elif stage == 'fe':
         with open('../../run_files/slurm_run-op-dd.bash') as f:
              s = f.read()
     else:
-        with open('../../run_files/slurm_run-all-dd.bash') as f: # For Amber?
+        with open('../../run_files/slurm_run-all-dd.bash') as f:
             s = f.read()
     with open('./slurm_run-all-dd.bash', "w") as f:
         f.write(s)
-    #os.chdir('../')
+    os.chdir('../')
     # current dir is /fe
     with open('./../run_files/slurm_run-all-dd-all-poses.bash') as f:
       s = f.read()
       s = s.replace('NUMBER_OF_POSES', str(len(poses_def)))
     with open('./slurm_run-all-dd-all-poses.bash', "w") as f:
       f.write(s)
-    os.chdir('../')
+    #os.chdir('../')
   if len(aa1_poses) != 0:
     print('\n')
     print ('WARNING: Could not find the ligand first anchor L1 for', aa1_poses)
