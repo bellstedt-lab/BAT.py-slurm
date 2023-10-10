@@ -794,10 +794,9 @@ elif stage == 'fe':
     else:
         with open('../../run_files/slurm_run-all-dd.bash') as f: # For Amber?
             s = f.read()
-            
     with open('./slurm_run-all-dd.bash', "w") as f:
         f.write(s)
-    os.chdir('../')
+    #os.chdir('../')
     # current dir is /fe
     with open('./../run_files/slurm_run-all-dd-all-poses.bash') as f:
       s = f.read()

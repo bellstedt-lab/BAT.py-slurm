@@ -1,6 +1,7 @@
 #!/bin/bash
 
 #SBATCH -J BAT1
+#SBATCH -o 1_equil_createFiles_JobId%j.out
 
 clear
 source /opt/conda/etc/profile.d/conda.sh

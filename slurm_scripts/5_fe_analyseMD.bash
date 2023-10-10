@@ -1,6 +1,8 @@
 #!/bin/bash
 
 #SBATCH -J BAT5
+#SBATCH -o 5_fe_analyseMD_JobId%j.out
+
 
 clear
 source /opt/conda/etc/profile.d/conda.sh

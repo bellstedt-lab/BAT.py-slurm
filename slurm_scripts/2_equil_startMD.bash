@@ -1,6 +1,8 @@
 #!/bin/bash
 
 #SBATCH -J BAT2
+#SBATCH -o 2_equil_StartMD_JobId%j.out
+
 
 clear
 source /opt/conda/etc/profile.d/conda.sh

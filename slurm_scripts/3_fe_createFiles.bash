@@ -1,6 +1,8 @@
 #!/bin/bash
 
 #SBATCH -J BAT3
+#SBATCH -o 3_fe_createFiles_JobId%j.out
+
 
 clear
 source /opt/conda/etc/profile.d/conda.sh
