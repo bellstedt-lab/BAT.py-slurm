@@ -12,8 +12,7 @@ cd ../BAT
 if [[ -d "./fe/pose0/" && ! -d "./fe/pose0/Results/" ]]; then
 	echo "4) Starting Productive MD runs..." 
 	cd fe
-	#bash sge_run-all-dd-all-poses.bash 1> ../logs/2b_fe_start_md.out 2> ../logs/2b_fe_start_md.err
-	bash sge_run-all-dd-all-poses.bash
+	bash slurm_run-all-dd-all-poses.bash
 	echo "Finished."
 else
 	echo "-) Skipping Produtive MD run execution: either /fe/pose0/Results/ exist or /fe/pose0/ does not exist"
