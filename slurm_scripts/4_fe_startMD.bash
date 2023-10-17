@@ -13,7 +13,8 @@ if [[ -d "./fe/pose0/" && ! -d "./fe/pose0/Results/" ]]; then
 	echo "4) Starting Productive MD runs..." 
 	cd fe
 	bash slurm_run-all-dd-all-poses.bash
-	echo "Finished."
+	sleep 2
+        echo "Finished."
 else
 	echo "-) Skipping Produtive MD run execution: either /fe/pose0/Results/ exist or /fe/pose0/ does not exist"
 fi

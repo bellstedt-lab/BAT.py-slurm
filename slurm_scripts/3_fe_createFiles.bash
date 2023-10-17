@@ -12,9 +12,8 @@ cd ../BAT
 if [[ ! -d "./fe" ]]; then
 	# Energy calculation
 	echo "3) Create Files for Productive MD runs..."
-	#python BAT_slurm.py -i input-dd-openmm.in -s fe 1> ./logs/2a_fe_prep.out 2>./logs/2a_fe_prep.err
 	python BAT_slurm.py -i input-dd-openmm.in -s fe
-	sleep 1
+	sleep 2
 	echo "...Finished."
 else
 	echo "-) Skipping creation of productive MD run directory: fe directory already exists"
