@@ -16,8 +16,11 @@ for pose in pose*; do
         echo ""
         cat "../../results/results_$pose.dat"
         echo ""
-    else
+    elif [ -d "./$pose/" ]; then
         touch "../../results/results_$pose.err"
         echo "NO results for $pose"
+    else
+       touch "../../results/results.err"
+       echo "Pose directory not found"
     fi
 done
