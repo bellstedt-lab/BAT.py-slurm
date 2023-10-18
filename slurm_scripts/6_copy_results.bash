@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd ..
-if [[ ! -d "$dir_path" ]]; then
+if [[ ! -d "./results" ]]; then
     mkdir ./results
 fi
 
