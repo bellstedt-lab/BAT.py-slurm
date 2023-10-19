@@ -6,8 +6,8 @@ import shutil as shutil
 import signal as signal
 import subprocess as sp
 import sys as sys
-from lib import build 
-from lib import scripts 
+from lib import build
+from lib import scripts
 from lib import setup
 from lib import analysis
 
@@ -16,10 +16,10 @@ poses_list = []
 poses_def = []
 release_eq = []
 attach_rest = []
-lambdas = []  
-weights = []  
-components = []  
-aa1_poses = []  
+lambdas = []
+weights = []
+components = []
+aa1_poses = []
 aa2_poses = []
 other_mol = []
 
@@ -789,19 +789,24 @@ elif stage == 'fe':
     #pbell2 : Copy and adjust run scripts
     # current dir is inside poseX
     if software == 'openmm':
-        with open('../../run_files/slurm_run-op-dd.bash') as f:
-             s = f.read()
+        if fe_type == 'dd':
+            with open('../../run_files/slurm_run-op-dd.bash') as f:
+               s = f.read()
+        elif fe_type == 'express':
+            with open('../../run_files/slurm_run-op-express.bash') as f:
+               s = f.read()
     else:
+     #toDo: implement the other fe types for Amber
         with open('../../run_files/slurm_run-all-dd.bash') as f:
             s = f.read()
-    with open('./slurm_run-all-dd.bash', "w") as f:
+    with open('./slurm_run-all.bash', "w") as f:
         f.write(s)
     os.chdir('../')
     # current dir is /fe
-    with open('./../run_files/slurm_run-all-dd-all-poses.bash') as f:
+    with open('./../run_files/slurm_run-all-fe-all-poses.bash') as f:
       s = f.read()
       s = s.replace('NUMBER_OF_POSES', str(len(poses_def)))
-    with open('./slurm_run-all-dd-all-poses.bash', "w") as f:
+    with open('./slurm_run-all-fe-all-poses.bash', "w") as f:
       f.write(s)
     #os.chdir('../')
   if len(aa1_poses) != 0:
