@@ -12,7 +12,7 @@ cd ../BAT
 if [[ -d "./fe/pose0/" && ! -d "./fe/pose0/Results/" ]]; then
 	echo "4) Starting Productive MD runs..." 
 	cd fe
-	bash slurm_run-all-dd-all-poses.bash
+	bash slurm_run-all-fe-all-poses.bash
 	sleep 2
         echo "Finished."
 else
