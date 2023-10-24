@@ -799,7 +799,7 @@ elif stage == 'fe':
      #toDo: implement the other fe types for Amber
         with open('../../run_files/slurm_run-all-dd.bash') as f:
             s = f.read()
-    with open('./slurm_run-all.bash', "w") as f:
+    with open('./slurm_run-all-fe.bash', "w") as f:
         f.write(s)
     os.chdir('../')
     # current dir is /fe
