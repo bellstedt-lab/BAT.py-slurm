@@ -16,6 +16,8 @@ for pose in pose*; do
         cp "./$pose/Results/Results.dat" "../../results/results_$pose_$host.dat"
         # extract SMILES representation of ligand and add to Results file
         smiles=$(cat "../equil/$pose/vac_ligand.pdb" | obabel -ipdb -osmi 2>/dev/null)
+        # convert ligand to sdf and save in results dir just be be sure in case it is needed afterwards
+        obabel "../equil/$pose/vac_ligand.pdb" -O "../../results/ligand_$pose_$host.sdf" 2>/dev/null
         echo "" >> "../../results/results_$pose_$host.dat"
         echo "SMILES of Ligand:" >> "../../results/results_$pose_$host.dat"
         echo "$smiles" >> "../../results/results_$pose_$host.dat"
