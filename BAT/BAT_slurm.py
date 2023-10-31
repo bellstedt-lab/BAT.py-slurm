@@ -789,7 +789,7 @@ elif stage == 'fe':
     #pbell2 : Copy and adjust run scripts
     # current dir is inside poseX
     if software == 'openmm':
-        if fe_type == 'dd':
+        if fe_type == 'dd-rest':
             with open('../../run_files/slurm_run-op-dd.bash') as f:
                s = f.read()
         elif fe_type == 'express':
